@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="style" rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="fts/fundo/capa.jpg">
+    <title>Corrida das Blogueiras Uma Nova Chance</title>
+</head>
+<body>
+    <div id="SiteCover" role="banner">
+        <div class="cover-content">
+            <h1 id="MainTitle">Corrida das Blogueiras Uma Nova Chance</h1>
+            <p class="cover-subtitle">Uma Nova Chance — Simulador 2025</p>
+        </div>
+    </div>
+
+    <div id="MainBlock">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="🔍 Escolha seu elenco...">
+            <button id="randomBtn" style="background: linear-gradient(135deg, #ff4081 0%, #f50057 100%); color: white; border: none; padding: 12px 16px; border-radius: 8px; font-size: 1.2em; cursor: pointer; margin-left: 10px; transition: all 0.3s ease;" title="Selecionar participante aleatório">🎲</button>
+        </div>
+
+        <!-- Filtros de início -->
+        <div class="game-mode-filters" style="text-align: center; margin-bottom: 40px;">
+            <h3 style="color: #ff4081; font-size: 1.5em; margin-bottom: 20px;">⚙️ Escolha o Modo de Jogo</h3>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
+                <button id="mode-aleatorio" class="mode-btn active" onclick="setGameMode('aleatorio')" data-tooltip="Sistema escolhe automaticamente os resultados">
+                    🎲 Aleatório (Sistema Decide)
+                </button>
+                <button id="mode-vf" class="mode-btn" onclick="setGameMode('vf')" data-tooltip="Você controla todos os resultados de cada episódio">
+                    🎮 VF (Você Decide)
+                </button>
+            </div>
+        </div>
+
+        <div id="contestants-pool">
+            <h3 style="text-align: center; color: #ff4081; font-size: 2em; margin-bottom: 30px;">Participantes Disponíveis</h3>
+            
+            <div class="season-group">
+                <h4>🌟 Temporada 1</h4>
+                <div class="contestants">
+                    <button class="contestant-btn" data-season="T1" data-photo="Renata.webp">
+                        <img src="fts/participantes/T1/Renata.webp" alt="Renata Santti" class="contestant-photo">
+                        <span>Renata Santti</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T1" data-photo="Vitoria.webp">
+                        <img src="fts/participantes/T1/Vitoria.webp" alt="Vitória Régia" class="contestant-photo">
+                        <span>Vitória Régia</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T1" data-photo="JuBarbosa.jpg">
+                        <img src="fts/participantes/T1/JuBarbosa.jpg" alt="Ju Barbosa" class="contestant-photo">
+                        <span>Ju Barbosa</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T1" data-photo="MarianaSoeiro.webp">
+                        <img src="fts/participantes/T1/MarianaSoeiro.webp" alt="Mariana Soeiro" class="contestant-photo">
+                        <span>Mariana Soeiro</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T1" data-photo="Mhanu.webp">
+                        <img src="fts/participantes/T1/Mhanu.webp" alt="Mhanuela com H" class="contestant-photo">
+                        <span>Mhanuela com H</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T1" data-photo="Fran.webp">
+                        <img src="fts/participantes/T1/Fran.webp" alt="Francine Souza" class="contestant-photo">
+                        <span>Francine Souza</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="season-group">
+                <h4>💫 Temporada 2</h4>
+                <div class="contestants">
+                    <button class="contestant-btn" data-season="T2" data-photo="KENYA.webp">
+                        <img src="fts/participantes/T2/KENYA.webp" alt="Kenya Borges" class="contestant-photo">
+                        <span>Kenya Borges</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T2" data-photo="PALLOMA.webp">
+                        <img src="fts/participantes/T2/PALLOMA.webp" alt="Palloma Tamirys" class="contestant-photo">
+                        <span>Palloma Tamirys</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T2" data-photo="TABATHA.webp">
+                        <img src="fts/participantes/T2/TABATHA.webp" alt="Tabatha Cuzziol" class="contestant-photo">
+                        <span>Tabatha Cuzziol</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T2" data-photo="EGO.webp">
+                        <img src="fts/participantes/T2/EGO.webp" alt="Ego Oliver" class="contestant-photo">
+                        <span>Ego Oliver</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T2" data-photo="VINI.webp">
+                        <img src="fts/participantes/T2/VINI.webp" alt="Vini Freire" class="contestant-photo">
+                        <span>Vini Freire</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T2" data-photo="JULIANA.webp">
+                        <img src="fts/participantes/T2/JULIANA.webp" alt="Juliana Haendchen" class="contestant-photo">
+                        <span>Juliana Haendchen</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T2" data-photo="LEA.webp">
+                        <img src="fts/participantes/T2/LEA.webp" alt="Lea Muller" class="contestant-photo">
+                        <span>Lea Muller</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T2" data-photo="ANDRESSA.webp">
+                        <img src="fts/participantes/T2/ANDRESSA.webp" alt="Andressah Catty" class="contestant-photo">
+                        <span>Andressah Catty</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="season-group">
+                <h4>⭐ Temporada 3</h4>
+                <div class="contestants">
+                    <button class="contestant-btn" data-season="T3" data-photo="LidyanneBergman.webp">
+                        <img src="fts/participantes/T3/LidyanneBergman.webp" alt="Lidyanne Bergman" class="contestant-photo">
+                        <span>Lidyanne Bergman</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T3" data-photo="NathMattis.webp">
+                        <img src="fts/participantes/T3/NathMattis.webp" alt="Nathália Mattis" class="contestant-photo">
+                        <span>Nathália Mattis</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T3" data-photo="Paloma.webp">
+                        <img src="fts/participantes/T3/Paloma.webp" alt="Paloma Barbiezinha" class="contestant-photo">
+                        <span>Paloma Barbiezinha</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T3" data-photo="Weel.webp">
+                        <img src="fts/participantes/T3/Weel.webp" alt="Weel Silva" class="contestant-photo">
+                        <span>Weel Silva</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T3" data-photo="Luna.webp">
+                        <img src="fts/participantes/T3/Luna.webp" alt="Luna Scarlett" class="contestant-photo">
+                        <span>Luna Scarlett</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T3" data-photo="GABRIEL.webp">
+                        <img src="fts/participantes/T3/GABRIEL.webp" alt="Gabriel Jordan" class="contestant-photo">
+                        <span>Gabriel Jordan</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T3" data-photo="JESSICA.jpg">
+                        <img src="fts/participantes/T3/JESSICA.jpg" alt="Jéssica Brazil" class="contestant-photo">
+                        <span>Jéssica Brazil</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T3" data-photo="JADE.webp">
+                        <img src="fts/participantes/T3/JADE.webp" alt="Jade Kotek" class="contestant-photo">
+                        <span>Jade Kotek</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T3" data-photo="LYE.webp">
+                        <img src="fts/participantes/T3/LYE.webp" alt="Lye" class="contestant-photo">
+                        <span>Lye</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T3" data-photo="DUDS.webp">
+                        <img src="fts/participantes/T3/DUDS.webp" alt="Duds Daher" class="contestant-photo">
+                        <span>Duds Daher</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="season-group">
+                <h4>🌈 Temporada 4</h4>
+                <div class="contestants">
+                    <button class="contestant-btn" data-season="T4" data-photo="Elay.webp">
+                        <img src="fts/participantes/T4/Elay.webp" alt="Elay Oliv" class="contestant-photo">
+                        <span>Elay Oliv</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T4" data-photo="Jahde.webp">
+                        <img src="fts/participantes/T4/Jahde.webp" alt="Jahde Borg" class="contestant-photo">
+                        <span>Jahde Borg</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T4" data-photo="Erick.webp">
+                        <img src="fts/participantes/T4/Erick.webp" alt="Erick Neto" class="contestant-photo">
+                        <span>Erick Neto</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T4" data-photo="DaCota.webp">
+                        <img src="fts/participantes/T4/DaCota.webp" alt="DaCota Monteiro" class="contestant-photo">
+                        <span>DaCota Monteiro</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T4" data-photo="Rafa.webp">
+                        <img src="fts/participantes/T4/Rafa.webp" alt="Rafa Mello" class="contestant-photo">
+                        <span>Rafa Mello</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T4" data-photo="Paula.webp">
+                        <img src="fts/participantes/T4/Paula.webp" alt="Paula Renata" class="contestant-photo">
+                        <span>Paula Renata</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T4" data-photo="Cris.webp">
+                        <img src="fts/participantes/T4/Cris.webp" alt="Cris Wraase" class="contestant-photo">
+                        <span>Cris Wraase</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T4" data-photo="Isabela.webp">
+                        <img src="fts/participantes/T4/Isabela.webp" alt="Isabela Borges" class="contestant-photo">
+                        <span>Isabela Borges</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T4" data-photo="Hillary.jpg">
+                        <img src="fts/participantes/T4/Hillary.jpg" alt="Hillary" class="contestant-photo">
+                        <span>Hillary</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T4" data-photo="Elu.webp">
+                        <img src="fts/participantes/T4/Elu.webp" alt="Elu Almeida" class="contestant-photo">
+                        <span>Elu Almeida</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="season-group">
+                <h4>✨ Temporada 5</h4>
+                <div class="contestants">
+                    <button class="contestant-btn" data-season="T5" data-photo="Huylson.webp">
+                        <img src="fts/participantes/T5/Huylson.webp" alt="Huylson" class="contestant-photo">
+                        <span>Huylson</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T5" data-photo="Barbit.webp">
+                        <img src="fts/participantes/T5/Barbit.webp" alt="Barbit" class="contestant-photo">
+                        <span>Barbit</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T5" data-photo="Ive.webp">
+                        <img src="fts/participantes/T5/Ive.webp" alt="Ive Gotts" class="contestant-photo">
+                        <span>Ive Gotts</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T5" data-photo="Alyssah.webp">
+                        <img src="fts/participantes/T5/Alyssah.webp" alt="Alyssah Hernandez" class="contestant-photo">
+                        <span>Alyssah Hernandez</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T5" data-photo="Luna.jpg">
+                        <img src="fts/participantes/T5/Luna.jpg" alt="Luna Hengel" class="contestant-photo">
+                        <span>Luna Hengel</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T5" data-photo="Ella.webp">
+                        <img src="fts/participantes/T5/Ella.webp" alt="Ella" class="contestant-photo">
+                        <span>Ella</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T5" data-photo="Dizaster.webp">
+                        <img src="fts/participantes/T5/Dizaster.webp" alt="Dizaster" class="contestant-photo">
+                        <span>Dizaster</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T5" data-photo="Leone.webp">
+                        <img src="fts/participantes/T5/Leone.webp" alt="Leone Dantas" class="contestant-photo">
+                        <span>Leone Dantas</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T5" data-photo="Wanessa.webp">
+                        <img src="fts/participantes/T5/Wanessa.webp" alt="Wanessa Brazil" class="contestant-photo">
+                        <span>Wanessa Brazil</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T5" data-photo="Sadrak.webp">
+                        <img src="fts/participantes/T5/Sadrak.webp" alt="Felipe Sadrak" class="contestant-photo">
+                        <span>Felipe Sadrak</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T5" data-photo="fada.webp">
+                        <img src="fts/participantes/T5/fada.webp" alt="Fada do Sonho" class="contestant-photo">
+                        <span>Fada do Sonho</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T5" data-photo="Dezza.webp">
+                        <img src="fts/participantes/T5/Dezza.webp" alt="Dezza" class="contestant-photo">
+                        <span>Dezza</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="season-group">
+                <h4>👑 Temporada 7</h4>
+                <div class="contestants">
+                    <button class="contestant-btn" data-season="T7" data-photo="Mady.webp">
+                        <img src="fts/participantes/T7/Mady.webp" alt="Mady" class="contestant-photo">
+                        <span>Mady</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T7" data-photo="Milena.webp">
+                        <img src="fts/participantes/T7/Milena.webp" alt="Milena Campos" class="contestant-photo">
+                        <span>Milena Campos</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T7" data-photo="Kitty.webp">
+                        <img src="fts/participantes/T7/Kitty.webp" alt="Kitty Kawakubo" class="contestant-photo">
+                        <span>Kitty Kawakubo</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T7" data-photo="Javi.webp">
+                        <img src="fts/participantes/T7/Javi.webp" alt="Javi Malpa" class="contestant-photo">
+                        <span>Javi Malpa</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T7" data-photo="Barcellos.webp">
+                        <img src="fts/participantes/T7/Barcellos.webp" alt="Barcellos" class="contestant-photo">
+                        <span>Barcellos</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T7" data-photo="Manille.webp">
+                        <img src="fts/participantes/T7/Manille.webp" alt="Manillê" class="contestant-photo">
+                        <span>Manillê</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T7" data-photo="Madrinha.webp">
+                        <img src="fts/participantes/T7/Madrinha.webp" alt="Madrinha" class="contestant-photo">
+                        <span>Madrinha</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T7" data-photo="Jordann.webp">
+                        <img src="fts/participantes/T7/Jordann.webp" alt="Jordann Vicente" class="contestant-photo">
+                        <span>Jordann Vicente</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T7" data-photo="Solita.webp">
+                        <img src="fts/participantes/T7/Solita.webp" alt="Solita" class="contestant-photo">
+                        <span>Solita</span>
+                    </button>
+                    <button class="contestant-btn" data-season="T7" data-photo="GiovannaCDB7Perfi.webp">
+                        <img src="fts/participantes/T7/GiovannaCDB7Perfi.webp" alt="Giovanna Visnardi" class="contestant-photo">
+                        <span>Giovanna Visnardi</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="selected-contestants">
+            <h3>👑 Participantes Selecionados (<span id="selected-count">0</span>/<span id="max-count">12</span>)</h3>
+            <div id="selected-list"></div>
+            <button id="remove-participant" class="start-button" onclick="removeParticipant()">❌ Remover Participante</button>
+        </div>
+
+        <div class="format-options" style="text-align: center; margin-top: 30px;">
+            <select id="premiere-format" class="format-select" data-tooltip="Escolha o formato do jogo">
+                <option value="regular">Modo Regular (8-12 participantes)</option>
+                <option value="pontuacao">Modo Pontuação (8 participantes)</option>
+                <option value="grupos">Modo Grupos (12 participantes)</option>
+            </select>
+            
+            <select id="final-type" class="format-select" style="display: none;" data-tooltip="Escolha o tipo de final">
+                <option value="top2">Final com Top 2</option>
+                <option value="top3">Final com Top 3</option>
+                <option value="top4">Final com Top 4</option>
+            </select>
+            
+            <select id="repescagem" class="format-select" style="display: none;" data-tooltip="Ativar repescagem no top 6?">
+                <option value="nao">Repescagem: Não</option>
+                <option value="sim">Repescagem: Sim</option>
+            </select>
+            
+            <select id="format" class="format-select" style="display: none;">
+                <option value="top2">Final com Top 2</option>
+                <option value="top3">Final com Top 3</option>
+                <option value="top4">Final com Top 4</option>
+            </select>
+        </div>
+
+        <button id="start-button" class="start-button" disabled onclick="startSimulation()">
+             Entrar no Blush!
+        </button>
+    </div>
+
+    <div class="footer">
+        <p>Feito com ❤️ pelo fã <a href="https://twitter.com/lendahofc" target="_blank" class="twitter-link">@lendahofc</a></p>
+    </div>
+
+    <!-- YouTube Icon (bottom-left, always visible) -->
+    <a href="https://www.youtube.com/divadepressao" target="_blank" class="youtube-icon" title="Canal dos Meninos">
+        <div class="youtube-circle">
+            <img src="fts/fundo/diva.jpg" alt="Canal dos Meninos" class="youtube-img">
+            <span class="youtube-label">Canal dos Meninos</span>
+        </div>
+    </a>
+
+    <!-- Scripts organizados por funcionalidade -->
+    <script src="javascript/index.js"></script>
+    <script src="javascript/modes.js"></script>
+    <script src="javascript/chaves.js"></script>
+    <script src="javascript/normal.js"></script>
+</body>
+</html>
